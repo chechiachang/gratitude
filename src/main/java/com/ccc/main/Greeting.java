@@ -1,4 +1,4 @@
-package com.ccc.main.domain;
+package com.ccc.main;
 
 public class Greeting {
 

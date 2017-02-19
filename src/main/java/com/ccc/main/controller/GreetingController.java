@@ -4,7 +4,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 import java.util.concurrent.atomic.AtomicLong;
 
-import com.ccc.main.domain.Greeting;
+import com.ccc.main.Greeting;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
