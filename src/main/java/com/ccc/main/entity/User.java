@@ -1,4 +1,4 @@
-package com.ccc.main.domain;
+package com.ccc.main.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
