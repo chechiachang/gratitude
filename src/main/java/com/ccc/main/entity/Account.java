@@ -1,16 +1,18 @@
 package com.ccc.main.entity;
 
+import javax.persistence.*;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.ccc.main.enums.AccountType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.annotations.Formula;
+import org.hibernate.annotations.*;
 
 @Entity
+@FilterDef(name="activeAccount", parameters=@ParamDef( name="active", type="boolean" ) )
+@Filter(name="activeAccount", condition="active = :active")
+@Where( clause = "active = true" )
 public class Account {
 
     @OneToMany(mappedBy = "account")
@@ -24,6 +26,13 @@ public class Account {
     public String password;
 
     public String username;
+
+    @ManyToOne
+    private Client client;
+
+    @Column(name = "account_type")
+    @Enumerated(EnumType.STRING)
+    private AccountType type;
 
     private Double credit;
 
