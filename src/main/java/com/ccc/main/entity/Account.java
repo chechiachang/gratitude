@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.Formula;
 
 @Entity
 public class Account {
@@ -23,6 +24,14 @@ public class Account {
     public String password;
 
     public String username;
+
+    private Double credit;
+
+    private Double rate;
+
+    @Formula(value = "credit * rate")
+    private Double interest;
+
 
     public Account(String password, String username) {
         this.password = password;
